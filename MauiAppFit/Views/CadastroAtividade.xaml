@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Window xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage.Content xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppFit.Views.CadastroAtividade"
              Title="CadastroAtividade">
-</Window>
+    <ToolbarItems>
+        <ToolbarItems Text="Nova" Order="Primary"
+                  Command="{Binding NovaAtividade}" />
+        <ToolbarItems Text="Salvar"
+                      IconImageSource="{OnPlatform Android=salvar24}"
+                      Order="Primary"
+                      Command="{Binding SalvarAtividade}"/>
+        </ContentPage.ToolbarItems>
+
+        <ContentPage.Content>
+            <StackLayout Padding="10">
+                <Label Text="{Binding Id }" />
+                <Label Text="Descrição:"/>
+                <Entry Text="{Binding Descricao }"
+                       Placeholder="Como foi sua Atividade?" />
+                <Label Text="Data: "/>
+                <DatePicker Format="dd/MM/yyyy" Date="{Binding Data }" />
+
+                <Label Text="Peso: "/>
+                <Entry Text="{Binding Peso }" Keyboard="Numeric"
+                       Placeholder="Quanto você está pesando?" />
+
+                <Label Text="Observações: " />
+                <Entry Text="{Binding Observacoes }"
+                       Placeholder="Algo para lembrar mais tarde?" />
+            </StackLayout>
+        </ContentPage.Content>
+        </ContentPage>
